@@ -1,8 +1,9 @@
-[![pipeline status](https://gitlab.com/ric_harvey/nginx-php-fpm/badges/master/pipeline.svg)](https://gitlab.com/ric_harvey/nginx-php-fpm/commits/master)
-![docker hub](https://img.shields.io/docker/pulls/richarvey/nginx-php-fpm.svg?style=flat-square)
-![docker hub](https://img.shields.io/docker/stars/richarvey/nginx-php-fpm.svg?style=flat-square)
+![docker hub](https://img.shields.io/docker/pulls/romainbou/nginx-php-fpm.svg?style=flat-square)
+![docker hub](https://img.shields.io/docker/stars/romainbou/nginx-php-fpm.svg?style=flat-square)
 
 ## Overview
+PHP 7.0 version of https://gitlab.com/ric_harvey/nginx-php-fpm
+
 This is a Dockerfile/image to build a container for nginx and php-fpm, with the ability to pull website code from git when the container is created, as well as allowing the container to push and pull changes to the code to and from git. The container also has the ability to update templated files with variables passed to docker in order to update your code and settings. There is support for lets encrypt SSL configurations, custom nginx configs, core nginx/PHP variable overrides for running preferences, X-Forwarded-For headers and UID mapping for local volume support.
 
 If you have improvements or suggestions please open an issue or pull request on the GitHub project page.
@@ -16,21 +17,21 @@ For other tags please see: [versioning](https://gitlab.com/ric_harvey/nginx-php-
 
 ### Links
 - [https://gitlab.com/ric_harvey/nginx-php-fpm](https://gitlab.com/ric_harvey/nginx-php-fpm)
-- [https://registry.hub.docker.com/u/richarvey/nginx-php-fpm/](https://registry.hub.docker.com/u/richarvey/nginx-php-fpm/)
+- [https://registry.hub.docker.com/u/romainbou/nginx-php-fpm/](https://registry.hub.docker.com/u/romainbou/nginx-php-fpm/)
 
 ## Quick Start
 To pull from docker hub:
 ```
-docker pull richarvey/nginx-php-fpm:latest
+docker pull romainbou/nginx-php-fpm:latest
 ```
 ### Running
 To simply run the container:
 ```
-sudo docker run -d richarvey/nginx-php-fpm
+sudo docker run -d romainbou/nginx-php-fpm
 ```
 To dynamically pull code from git when starting:
 ```
-docker run -d -e 'GIT_EMAIL=email_address' -e 'GIT_NAME=full_name' -e 'GIT_USERNAME=git_username' -e 'GIT_REPO=github.com/project' -e 'GIT_PERSONAL_TOKEN=<long_token_string_here>' richarvey/nginx-php-fpm:latest
+docker run -d -e 'GIT_EMAIL=email_address' -e 'GIT_NAME=full_name' -e 'GIT_USERNAME=git_username' -e 'GIT_REPO=github.com/project' -e 'GIT_PERSONAL_TOKEN=<long_token_string_here>' romainbou/nginx-php-fpm:latest
 ```
 
 You can then browse to ```http://<DOCKER_HOST>``` to view the default install files. To find your ```DOCKER_HOST``` use the ```docker inspect``` to get the IP address (normally 172.17.0.2)
